@@ -65,7 +65,8 @@ blogsRouter.put('/:id', async (request, response) => {
 		title: body.title,
 		author: body.author,
 		url: body.url,
-		likes: body.likes ? body.likes : 0 ,
+    name: body.name,
+		likes: body.likes +1,
 	}
   
 	await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
